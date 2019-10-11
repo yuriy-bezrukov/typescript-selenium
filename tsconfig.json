@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "sourceMap": false,
+        "target": "es5",
+        "outDir": "dist"
+    },
+    "include": [
+        "tests/*.ts"
+    ]
+}

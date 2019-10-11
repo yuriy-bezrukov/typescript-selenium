@@ -1,25 +1,25 @@
-# Automation Testing with Selenium and JavaScript
+# Automation Testing with Selenium and Typescript
 
+0.1 install "vs code"
+0.2 in "vs code" File -> Open file -> "typescript-selenium"
+0.3 edit "\typescript-selenium\tests\first.test.ts" or add test file "\typescript-selenium\tests\*.test.ts"
 
+1 install packages
 ```sh
 npm i
+```
+
+2 compile typescript
+```sh
+npm run typescript
+```
+
+3 run tests
+```sh
 npm run test
 ```
 
-## Documentation
-
-+ [Installation](docs/installation.md)
-+ [Getting Started](docs/getting-started.md)
-+ [Navigating](docs/navigating.md)
-+ [Page Objects](docs/pageObjects.md)
-
-## Contributions
-
-This is an ongoing project. Please feel free to ask questions, request features, create pull request, or [tickets](https://github.com/dalenguyen/selenium-javascript/issues/new).
-
-## References
-
-[Selenium-Python](https://selenium-python.readthedocs.io)
-[Formy](http://formy-project.herokuapp.com/)
-[Team Tree House](https://teamtreehouse.com/library/drag-and-drop)
-[Selenium Essential Training](https://www.lynda.com/Selenium-tutorials/Selenium-Essential-Training/696863-2.html)
+or pass 2 and 3 step
+```sh
+npm run refresh
+```

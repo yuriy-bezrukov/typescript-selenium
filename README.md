@@ -1,10 +1,9 @@
 # Automation Testing with Selenium and Typescript
 
-0.0 install nodeJs
-
-0.1 install "vs code"
-0.2 in "vs code" File -> Open file -> "typescript-selenium"
-0.3 edit "\typescript-selenium\tests\first.test.ts" or add test file "\typescript-selenium\tests\*.test.ts"
+- install nodeJs
+- install "vs code"
+- in "vs code" File -> Open file -> "typescript-selenium"
+- edit "\typescript-selenium\tests\first.test.ts" or add test file "\typescript-selenium\tests\*.test.ts"
 
 1 install packages
 ```sh

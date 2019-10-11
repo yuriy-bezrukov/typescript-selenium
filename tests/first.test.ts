@@ -15,7 +15,7 @@ capabilities.set("goog:chromeOptions", {
       "--lang=en",
       "disable-infobars",
       "--disable-plugins",
-      "--headless"
+    //  "--headless"
   ]
 });
 
@@ -39,7 +39,7 @@ describe('Checkout Google.com', function () {
 
     it('Search on Google', async function() {
         await driver.get('https://google.com');
-        await driver.findElement(By.name('q')).click();
+        await driver.findElement(By.css('[name="q"]')).click();
         await driver.findElement(By.name('q')).sendKeys('brunoyam', Key.RETURN);
         await driver.wait(until.elementLocated(By.id('rcnt')), 10000);
         await driver.findElement(By.name('q')).clear();

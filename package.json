@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "typescript": "./node_modules/.bin/tsc --p tsconfig.json",
-    "test": "./node_modules/.bin/mocha --recursive --timeout 10000 dist/*.test.js",
+    "test": "./node_modules/.bin/mocha --recursive --timeout 10000 dist/**/*.test.js",
     "refresh": "npm run typescript && npm run test"
   },
   "license": "MIT",
@@ -14,13 +14,10 @@
     "@types/selenium-webdriver": "^4.0.3",
     "chromedriver": "latest",
     "selenium-webdriver": "latest",
-    "typescript": "^3.6.4"
-  },
-  "devDependencies": {
+    "typescript": "^3.6.4",
     "mocha": "^5.2.0"
   },
   "engines": {
-    "node": ">=8.0.0",
-    "yarn": ">=1.0.0"
+    "node": ">=8.0.0"
   }
 }

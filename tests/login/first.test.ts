@@ -5,47 +5,40 @@ import { App } from "../../pagesObject/config.po";
 import { SeleniumUtils } from "../../utils/se.utils";
 
 interface IAssert {
-    equal: (actual: Object, expected: Object) => void;
+  equal: (actual: Object, expected: Object) => void;
 }
 
-require('chromedriver');
-const assert: IAssert = require('assert');
+require("chromedriver");
+const assert: IAssert = require("assert");
 
 let capabilities = Capabilities.chrome();
 
 capabilities.set("goog:chromeOptions", {
-    args: [
-        "--lang=en",
-        "disable-infobars",
-        "--disable-plugins",
-        //"--headless"
-    ]
+  args: ["--lang=en", "disable-infobars", "--disable-plugins", "--headless"]
 });
 
-describe('Login form', function () {
-    let driver: WebDriver;
-    let page: LoginPage;
-    let calendarPage: CalendarPage;
-    let browser: SeleniumUtils;
+describe("Login form", function() {
+  let driver: WebDriver;
+  let page: LoginPage;
+  let calendarPage: CalendarPage;
+  let browser: SeleniumUtils;
 
-    before(async function () {
-        driver = await new Builder().withCapabilities(capabilities).build();
-        page = new LoginPage(driver);
-        calendarPage = new CalendarPage(driver);
-        browser = new SeleniumUtils(driver);
+  before(async function() {
+    driver = await new Builder().withCapabilities(capabilities).build();
+    page = new LoginPage(driver);
+    calendarPage = new CalendarPage(driver);
+    browser = new SeleniumUtils(driver);
+  });
 
-    });
+  it("Positive test", async function() {
+    browser.go(App.url);
+    await page.isLoad();
+    await browser.keys(page.email(), App.user.login);
+    await browser.keys(page.password(), App.user.password);
+    await browser.click(page.submit());
+    await calendarPage.isLoad();
+    await assert.equal(await calendarPage.isPage(), true);
+  });
 
-    it('Positive test', async function () {
-        browser.go(App.url);
-        await page.isLoad();
-        await browser.keys(page.email(), App.user.login);
-        await browser.keys(page.password(), App.user.password);
-        await browser.click(page.submit());
-        await calendarPage.isLoad();
-        await assert.equal(await calendarPage.isPage(), true);
-    });
-
-
-    after(() => driver && driver.quit());
-})
+  after(() => driver && driver.quit());
+});

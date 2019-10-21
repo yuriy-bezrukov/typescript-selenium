@@ -40,5 +40,16 @@ describe("Login form", function() {
     await assert.equal(await calendarPage.isPage(), true);
   });
 
+  it("Negative test", async function() {
+    debugger;
+    browser.go(App.url);
+    await page.isLoad();
+    await browser.keys(page.email(), App.user.login);
+    await browser.keys(page.password(), "qweqweqweqwe");
+    await browser.click(page.submit());
+    await page.isLoad();
+    await assert.equal(await page.isPage(), true);
+  });
+
   after(() => driver && driver.quit());
 });

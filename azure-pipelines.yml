@@ -17,5 +17,6 @@ steps:
 
 - script: |
     npm install
-    npm run build
+    npm run typescript
+    npm run test
   displayName: 'npm install and build'

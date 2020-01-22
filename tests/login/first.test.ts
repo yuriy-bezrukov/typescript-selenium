@@ -18,7 +18,7 @@ capabilities.set("goog:chromeOptions", {
     "--lang=en",
     "disable-infobars",
     "--disable-plugins",
-    "--headless"
+    //"--headless"
   ]
 });
 
@@ -42,7 +42,9 @@ describe("Login form", function () {
     await browser.keys(page.password(), App.user.password);
     await browser.click(page.submit());
     await calendarPage.isLoad();
-    await assert.equal(await calendarPage.isPage(), true);
+    let isCalendarPage = await calendarPage.isPage();
+    await browser.click(calendarPage.buttonExit());
+    await assert.equal(isCalendarPage, true);
   });
 
   it("Negative test", async function () {

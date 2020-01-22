@@ -10,6 +10,8 @@ export class CalendarPage {
         return this.browser.findElement(By.css(cssPath));
     }
 
+    buttonExit = () => this.find('[ng-click="exit()"]');
+
     isPage() {
         let blockOnLoginPage = this.find('calendar-component');
         return this.seleniumUtils.existElement(blockOnLoginPage);

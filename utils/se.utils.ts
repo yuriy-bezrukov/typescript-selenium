@@ -1,4 +1,4 @@
-import { WebDriver, WebElementPromise, until, By } from "selenium-webdriver";
+import { WebDriver, WebElementPromise, until, By } from 'selenium-webdriver';
 
 export class SeleniumUtils {
 
@@ -29,7 +29,7 @@ export class SeleniumUtils {
     }
 
     async wait(cssPath: string, timeout = 10000) {
-        await this.browser.wait(until.elementLocated(By.css(cssPath)), timeout);
+        return await this.browser.wait(await until.elementLocated(await By.css(cssPath)), timeout);
     }
 
 

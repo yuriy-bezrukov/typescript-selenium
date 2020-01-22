@@ -14,23 +14,28 @@ const assert: IAssert = require("assert");
 let capabilities = Capabilities.chrome();
 
 capabilities.set("goog:chromeOptions", {
-  args: ["--lang=en", "disable-infobars", "--disable-plugins", "--headless"]
+  args: [
+    "--lang=en",
+    "disable-infobars",
+    "--disable-plugins",
+    "--headless"
+  ]
 });
 
-describe("Login form", function() {
+describe("Login form", function () {
   let driver: WebDriver;
   let page: LoginPage;
   let calendarPage: CalendarPage;
   let browser: SeleniumUtils;
 
-  before(async function() {
+  before(async function () {
     driver = await new Builder().withCapabilities(capabilities).build();
     page = new LoginPage(driver);
     calendarPage = new CalendarPage(driver);
     browser = new SeleniumUtils(driver);
   });
 
-  it("Positive test", async function() {
+  it("Positive test", async function () {
     browser.go(App.url);
     await page.isLoad();
     await browser.keys(page.email(), App.user.login);
@@ -40,10 +45,10 @@ describe("Login form", function() {
     await assert.equal(await calendarPage.isPage(), true);
   });
 
-  it("Negative test", async function() {
-    debugger;
+  it("Negative test", async function () {
     browser.go(App.url);
     await page.isLoad();
+    await browser.sleep(2000);
     await browser.keys(page.email(), App.user.login);
     await browser.keys(page.password(), "qweqweqweqwe");
     await browser.click(page.submit());

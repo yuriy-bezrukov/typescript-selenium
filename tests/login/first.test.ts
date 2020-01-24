@@ -1,4 +1,4 @@
-import { Builder, WebDriver, Capabilities } from "selenium-webdriver";
+import { Builder, WebDriver, Capabilities, By } from "selenium-webdriver";
 import { LoginPage } from "../../pagesObject/login.po";
 import { CalendarPage } from "../../pagesObject//calendar.po";
 import { App } from "../../pagesObject/config.po";
@@ -33,6 +33,19 @@ describe("Login form", function () {
     page = new LoginPage(driver);
     calendarPage = new CalendarPage(driver);
     browser = new SeleniumUtils(driver);
+  });
+
+  it("simple Selenium test", async function () {
+    await driver.get('http://dev2.lab-27.ru');
+    await driver.sleep(3000);
+    driver.findElement(By.css('[ng-model="ctrl.email"]')).sendKeys('w@w.w');
+    driver.findElement(By.css('[ng-model="ctrl.password"]')).sendKeys('w');
+    (await driver.findElement(By.css('[type="button"]'))).click()
+    await driver.sleep(3000);
+    let blockOnLoginPage = driver.findElement(By.css('login-access-component'));
+    let isExist = blockOnLoginPage.then(()=> true, ()=> false);
+    (await driver.findElement(By.css('[ng-click="exit()"]'))).click()
+    await assert.equal(await isExist, false);
   });
 
   it("Positive test", async function () {

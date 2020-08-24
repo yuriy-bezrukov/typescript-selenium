@@ -8,7 +8,6 @@ export class AddClientPage {
         return this.browser.findElement(By.css(cssPath));
     }
 
-
     tab = () => this.find('md-pagination-wrapper>md-tab-item:nth-child(2)')
     clock = {
         hour: '[ng-model="ctrl.unit.hour"]',
@@ -29,5 +28,4 @@ export class AddClientPage {
         (await this.find(`[ng-model="ctrl.unit.hour"]  option[value="${hour}"]`)).click();
         (await this.find(`[ng-model="ctrl.unit.minute"]  option[value="${minute}"]`)).click();
     };
-
 }

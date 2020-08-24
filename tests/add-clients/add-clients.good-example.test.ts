@@ -25,7 +25,7 @@ xdescribe('GOOD - Login form', function () {
     loginPage.email().sendKeys(app.user.login);
     loginPage.password().sendKeys(app.user.login);
     (await loginPage.submit()).click();
-    await driver.sleep(500);
+    await loginPage.waitAuthorization();
 
     (await page.tab()).click();
   });

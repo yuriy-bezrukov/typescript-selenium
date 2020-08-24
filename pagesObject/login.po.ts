@@ -13,10 +13,12 @@ export class LoginPage {
     password = () => this.find('[type="password"]');
     submit = () => this.find('[type="button"]');
 
-    isPage() {
-        let blockOnLoginPage = this.find('login-access-component');
-        return this.seleniumUtils.existElement(blockOnLoginPage);
-    }
+    // isPage() {
+    //     let blockOnLoginPage = this.find('login-access-component');
+    //     return this.seleniumUtils.existElement(blockOnLoginPage);
+    // }
 
-    isLoad = () => this.seleniumUtils.wait('login-access-component');
+    async waitAuthorization() {
+        return await this.seleniumUtils.wait('[ng-click="exit()"]');
+    } 
 }

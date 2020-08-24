@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "typescript": "./node_modules/.bin/tsc --p tsconfig.json",
-    "test": "./node_modules/.bin/mocha --recursive --timeout 30000 dist/**/*.test.js",
-    "refresh": "npm run typescript && npm run test"
+    "mocha": "./node_modules/.bin/mocha --recursive --timeout 30000 dist/**/*.test.js",
+    "test": "npm run typescript && npm run mocha"
   },
   "license": "MIT",
   "dependencies": {

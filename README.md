@@ -17,10 +17,10 @@ npm run typescript
 
 3 run tests
 ```sh
-npm run test
+npm run mocha
 ```
 
 or pass 2 and 3 step
 ```sh
-npm run refresh
+npm run test
 ```

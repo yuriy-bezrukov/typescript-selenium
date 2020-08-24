@@ -1,7 +1,7 @@
-export const App = {
-    user: {
+export const app = {
+    user: { // move this declare to git variable !!!
         login: 'w@w.w',
         password: 'w'
     },
-    url: 'http://dev2.lab-27.ru'
+    url: 'http://lab2.webtm.ru'
 }

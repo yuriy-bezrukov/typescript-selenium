@@ -10,11 +10,6 @@
 npm i
 ```
 
-2 compile typescript
-```sh
-npm run typescript
-```
-
 3 run tests
 ```sh
 npm run mocha

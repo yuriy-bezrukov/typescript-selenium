@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run ts-mocha File",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/ts-mocha",
+            "runtimeArgs": [
+                "--timeout",
+                "999999",
+                "--colors",
+                "./tests/**/*.test.ts"
+            ],
+            "protocol": "inspector"
+        }
+
+    ]
+}
